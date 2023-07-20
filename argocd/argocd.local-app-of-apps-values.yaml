@@ -47,6 +47,9 @@ applications:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
   revisionHistoryLimit: 20
 - name: cantaloupe
   namespace: cantaloupe
@@ -68,10 +71,9 @@ applications:
       selfHeal: true
       allowEmpty: true
     syncOptions:
-    - CreateNamespace=true
-    - PruneLast=true
+      - CreateNamespace=true
+      - PruneLast=true
   revisionHistoryLimit: 20
-
 
 # -- Deploy Argo CD Projects within this helm release
 # @default -- `[]` (See [values.yaml])
