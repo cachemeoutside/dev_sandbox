@@ -25,6 +25,29 @@ applications:
       prune: true
       selfHeal: true
   revisionHistoryLimit: 20
+- name: argocd-app
+  namespace: argocd
+  additionalLabels: {}
+  additionalAnnotations: {}
+  project: default
+  sources:
+   - chart: argo-apps
+     repoURL: https://argoproj.github.io/argo-helm
+     targetRevision: 1.2.0
+     helm:
+       valueFiles:
+         - $values/argocd/argocd.local-app-of-apps-values.yaml
+   - repoURL: https://github.com/cachemeoutside/dev_sandbox.git
+     targetRevision: HEAD
+     ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  revisionHistoryLimit: 20
 - name: cantaloupe
   namespace: cantaloupe
   finalizers:
