@@ -14,4 +14,4 @@ k3d cluster create argocd --api-port 6550 -p "34000:80@loadbalancer" --agents 2
   admin/admin
 
 * Create app-of-apps helm chart for itself
-  helm install -n argocd argocd-app argo/argocd-apps -f argocd.local-app-of-apps-values.yaml
+  helm install -n argocd argocd-apps argo/argocd-apps -f argocd.local-app-of-apps-values.yaml

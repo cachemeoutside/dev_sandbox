@@ -25,7 +25,7 @@ applications:
       prune: true
       selfHeal: true
   revisionHistoryLimit: 20
-- name: argocd-app
+- name: argocd-apps
   namespace: argocd
   additionalLabels: {}
   additionalAnnotations: {}
