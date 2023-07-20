@@ -25,6 +25,30 @@ applications:
       prune: true
       selfHeal: true
   revisionHistoryLimit: 20
+- name: cantaloupe
+  namespace: cantaloupe
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  additionalLabels: {}
+  additionalAnnotations: {}
+  project: default
+  sources:
+   - chart: cantaloupe
+     repoURL: https://chartmuseum.library.ucla.edu
+     targetRevision: 5.0.5
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cantaloupe
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+  revisionHistoryLimit: 20
+
 
 # -- Deploy Argo CD Projects within this helm release
 # @default -- `[]` (See [values.yaml])
