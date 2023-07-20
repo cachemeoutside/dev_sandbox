@@ -15,7 +15,6 @@ applications:
        valueFiles:
          - $values/argocd/argocd.local-values.yaml
    - repoURL: https://github.com/cachemeoutside/dev_sandbox.git
-     path: argocd
      targetRevision: HEAD
      ref: values
   destination:
