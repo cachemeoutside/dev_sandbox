@@ -30,6 +30,8 @@ applications:
   revisionHistoryLimit: 20
 - name: argocd-apps
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
   additionalLabels: {}
   additionalAnnotations: {}
   project: default
