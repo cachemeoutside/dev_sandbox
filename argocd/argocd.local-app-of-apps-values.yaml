@@ -58,7 +58,7 @@ applications:
       - RespectIgnoreDifferences=true
   revisionHistoryLimit: 20
 - name: cantaloupe
-  namespace: cantaloupe
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   additionalLabels: {}
