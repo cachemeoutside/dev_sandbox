@@ -80,6 +80,30 @@ applications:
       - CreateNamespace=true
       - PruneLast=true
   revisionHistoryLimit: 20
+- name: pvtest
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  additionalLabels: {}
+  additionalAnnotations: {}
+  project: default
+  sources:
+   - repoURL: https://github.com/cachemeoutside/dev_sandbox.git
+     targetRevision: HEAD
+     path: argocd/test-app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pvtest
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+  revisionHistoryLimit: 20
+#
 #
 # -- Deploy Argo CD Projects within this helm release
 # @default -- `[]` (See [values.yaml])
