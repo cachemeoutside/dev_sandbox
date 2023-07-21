@@ -53,8 +53,6 @@ applications:
     syncOptions:
       - Validate=false
       - CreateNamespace=true
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
       - RespectIgnoreDifferences=true
   revisionHistoryLimit: 20
 
